@@ -1,25 +1,25 @@
 ﻿{
-	"manifest_version": 2,
-	"name": "HKGCache Redirector[Beta]",
-	"version": "0.0.3",
-	"icons": {
-		"19": "hkg_icon_19.png",
-		"38": "hkg_icon_38.png",
-		"128": "hkg_icon_128.png"
-	},
-	"background": { "scripts": ["background.js"] },
-	"permissions": ["tabs", "clipboardRead", "contextMenus"],
-	"page_action": {
-		"default_icon": {
-			"19": "hkg_icon_19.png",
-			"38": "hkg_icon_38.png",
-			"128": "hkg_icon_128.png"
-		},
-		"default_title": "Redirect to HKGCache[Beta]",
-		"default_popup": "redirect.html"
-	},
-	"content_scripts": [{
-		"matches": ["http://*/*", "http://*/*"],
-		"js": ["redirect.js"]
-	}]
+    "manifest_version": 2,
+    "name": "HKGCache Redirector[Beta]",
+    "version": "0.0.3",
+    "icons": {
+        "19": "hkg_icon_19.png",
+        "38": "hkg_icon_38.png",
+        "128": "hkg_icon_128.png"
+    },
+    "background": { "scripts": ["background.js"] },
+    "permissions": ["tabs", "clipboardRead", "contextMenus"],
+    "page_action": {
+        "default_icon": {
+            "19": "hkg_icon_19.png",
+            "38": "hkg_icon_38.png",
+            "128": "hkg_icon_128.png"
+        },
+        "default_title": "Redirect to HKGCache[Beta]",
+        "default_popup": "redirect.html"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "http://*/*"],
+        "js": ["redirect.js"]
+    }]
 }
