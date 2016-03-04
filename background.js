@@ -49,8 +49,12 @@ chrome.extension.onRequest.addListener(
 
 // update extension show status
 function UpdateShowStatus(activeInfo) {
-    chrome.tabs.getSelected(null,function(tab) {
-        chrome.pageAction.show(tab.id);
+    chrome.tabs.query({"active": true, "lastFocusedWindow": true},function(tabs) {
+        if (typeof tabs != "undefined" && null != tabs) {
+            if (tabs.length > 0) {
+                chrome.pageAction.show(tabs[0].id);
+            }
+        }
     });
 };
 
