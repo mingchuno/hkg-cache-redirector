@@ -124,9 +124,9 @@ function AnalyseHKGData(element, index, array) {
 // Set up context menu at install time.
 chrome.runtime.onInstalled.addListener(function() {
     console.log("onInstall");
-    var context = "link";
+    var context = ["page", "link"]
     var title = "View with HKGCache";
-    chrome.contextMenus.create({title: title, contexts: [context]});  
+    chrome.contextMenus.create({title: title, contexts: context});
     
 });
 
@@ -138,4 +138,16 @@ chrome.contextMenus.onClicked.addListener(function(info) {
             chrome.tabs.create({url: GetHKGCacheUrlFromUrl(url), active: true});
         }
     }
+    // try page
+    else {
+        console.log("pageUrl=" + info.pageUrl);
+        url = info.pageUrl;
+        if(IsDomainHKGForum(url)){
+            chrome.tabs.getSelected(null, function(tab) {
+                console.log("redirecting to " + url);
+                chrome.tabs.update(tab.id, {url: GetHKGCacheUrlFromUrl(url)});
+            });
+        }
+    }
+    
 });
