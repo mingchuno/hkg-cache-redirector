@@ -84,7 +84,7 @@ function GetHKGCacheUrlFromUrl(url) {
 function IsDomainHKGForum(url) {
     if(typeof url == "undefined" || null == url)
         url = window.location.href;
-    var regex = /(m[0-9]+|forum[0-9]+)\.hkgolden\.com/;
+    var regex = /(m[0-9]+|forum[0-9]+|search)\.hkgolden\.com/;
     var match = url.match(regex);
     // confirm to be hkg forum
     if(typeof match != "undefined" && null != match) {
